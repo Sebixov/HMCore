@@ -1,0 +1,86 @@
+name: Core
+version: '1.0-SNAPSHOT'
+main: me.sebixov.core.Core
+api-version: '1.20'
+
+
+commands:
+  gm:
+    description: Changes the game mode
+    permission: core.gm
+  online:
+    description: Lists online players
+    permission: core.online
+  mute:
+    description: Mutes a player
+    permission: core.mod.mute
+    aliases: wycisz
+  unmute:
+    description: Unmutes a player
+    permission: core.mod.unmute
+    aliases: odcisz
+  cleanchat:
+    description: Clean the chat
+    permission: core.mod.cleanchat
+  acc:
+    description: Admin management command
+    permission: core.economy.acc
+  konto:
+    description: Accesses the player's account
+  zaplac:
+    description: pays a player
+    aliases: pay
+  akceptuj:
+    description: Akcpetuje przelew
+  odrzuc:
+    description: Odrzuca przelew
+
+
+permissions:
+  core.*:
+    description: Core main permission
+    default: op
+    children:
+      core.gm: true
+      core.online: true
+      core.mod.*: true
+      core.mod.mute: true
+      core.mod.unmute: true
+      core.mod.cleanchat: true
+      core.economy.*: true
+  xray.*:
+    description: X-ray main permission
+    default: op
+    children:
+      xray.admin: true
+  core.mod.*:
+    description: Core moderation main permission
+    default: op
+    children:
+      core.mod.mute: true
+      core.mod.unmute: true
+      core.mod.cleanchat: true
+  core.economy.*:
+    description: Core economy permission
+    default: op
+    children:
+      core.economy.acc: true
+  core.mod.mute:
+    description: Core mute permission
+    default: op
+  core.mod.unmute:
+    description: Core unmute permission
+    default: op
+  core.mod.cleanchat:
+    description: Core clean chat permission
+    default: op
+  core.gm:
+    description: Allows for game mode change
+    default: op
+  core.online:
+    description: Access to the /online command
+    default: op
+  xray.admin:
+    description: X-ray message permission
+    default: op
+
